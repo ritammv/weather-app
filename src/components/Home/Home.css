@@ -1,0 +1,35 @@
+.home_wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+.enter_btn {
+  background-color: #f49c0a;
+  padding: 10px;
+  width: 200px;
+  font-size: 20px;
+  color: white;
+  border-radius: 15px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.background_video {
+  position: fixed;
+  z-index: -1;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.home_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 250px;
+}

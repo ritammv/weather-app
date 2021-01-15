@@ -1,0 +1,43 @@
+.weather_header {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  align-items: center;
+  background-color: #242d3d;
+}
+
+.weather_header_text {
+  height: 50px;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.loading_bar {
+  width: 95%;
+  height: 20px;
+  background-color: #b28409;
+  border-radius: 8px;
+}
+
+.time_now {
+  justify-self: center;
+  padding: 5px;
+  text-align: center;
+  align-self: center;
+  width: 100%;
+}
+
+.time_now .one {
+  justify-self: center;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  align-self: center;
+  width: 100%;
+  font-size: 13px;
+  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
