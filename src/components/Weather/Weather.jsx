@@ -6,7 +6,7 @@ import './Weather.css';
 
 const Weather = () => {
   const [londonWeather, setLondonWeather] = useState({});
-  const [forecast, setForecast] = useState({});
+  const [loading, isLoading] = useState(true);
 
   const timeNow = () => {
     const today = new Date();
@@ -19,38 +19,34 @@ const Weather = () => {
   };
 
   useEffect(async () => {
-    ApiService.getLondonWeather().then((res) => setLondonWeather(res));
-    ApiService.getForecast().then((res) => setForecast(res));
-    const interval = setInterval(async () => {
-      const london = await ApiService.getLondonWeather();
-      setLondonWeather(london);
-
-      const dayforecast = await ApiService.getForecast();
-      setForecast(dayforecast);
-    }, 60000);
-    return () => clearInterval(interval);
+    await ApiService.getLondonWeather().then((res) => setLondonWeather(res));
+    isLoading(false);
   }, []);
 
   return (
     <>
-      {londonWeather && (
-        <div className="weather_header">
-          <div className="weather_header_text">
-            <p className="time_now">{londonWeather.name}</p>
-
-            <p className="time_now one">{timeNow()}</p>
-
-            <p className="time_now ">
-              {/* {`${Math.ceil(londonWeather.main.temp)}°`} */}
-            </p>
+      {!loading && (
+        <>
+          <div className="weather_header">
+            <div className="weather_header_text">
+              <p className="time_now">London</p>
+              {console.log(londonWeather)}
+              <p className="time_now one">{timeNow()}</p>
+              <p className="time_now ">
+                {`${Math.ceil(londonWeather.daily[0].temp.day)}°`}
+              </p>
+            </div>
+            <div className="loading_bar" />
           </div>
-          <div className="loading_bar" />
-        </div>
+
+          <div className="weather_wrapper">
+            {londonWeather.daily &&
+              londonWeather.daily.map((day) => (
+                <WeatherTile day={day} key={day.dt} />
+              ))}
+          </div>
+        </>
       )}
-      <div className="weather_wrapper">
-        {forecast.list &&
-          forecast.list.map((day) => <WeatherTile day={day} key={day.dt} />)}
-      </div>
     </>
   );
 };
