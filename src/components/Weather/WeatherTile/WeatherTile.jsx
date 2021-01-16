@@ -1,16 +1,21 @@
 import React from 'react';
 import './WeatherTile.css';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const WeatherTile = ({ day }) => {
-  const temp = moment(day.dt).format('ddd');
-
   return (
     <>
-      {day && (
+      {day.dt && (
         <div className="weather_tile_wrapper">
           <div className="weather_tile_text">
-            <h2 className="weather_text">{temp}</h2>
+            <h2 className="weather_text">
+              {dayjs(day.dt.toString()).format('ddd').toUpperCase()}
+            </h2>
+            {console.log(
+              `day${day.dt}${dayjs(day.dt.toString())
+                .format('ddd')
+                .toUpperCase()}`
+            )}
             <h2 className="weather_temp">{`${Math.ceil(day.temp.day)}°`}</h2>
           </div>
 
