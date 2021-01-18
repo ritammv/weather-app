@@ -9,9 +9,9 @@ const Weather = () => {
 
   useEffect(async () => {
     await ApiService.getLondonWeather().then((res) => setWeather(res));
-    // setInterval(() => {
-    //   ApiService.getLondonWeather().then((res) => setWeather(res));
-    // }, 60000);
+    setInterval(() => {
+      ApiService.getLondonWeather().then((res) => setWeather(res));
+    }, 60000);
   }, []);
 
   const timeNow = () => {
