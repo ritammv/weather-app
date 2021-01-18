@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="images/weather1.png" width="300" height="600">
   <img src="images/weather2.png" width="300" height="600">
+  <img src="images/weather1.png" width="300" height="600">
  </p>
 
 # WEATHER APP
