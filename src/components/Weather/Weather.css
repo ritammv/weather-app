@@ -19,8 +19,6 @@
 .loading_bar {
   width: 95%;
   height: 20px;
-  background-color: #b28409;
-  border-radius: 8px;
 }
 
 .time_now {

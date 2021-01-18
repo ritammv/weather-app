@@ -1,0 +1,23 @@
+.progress_bar {
+  /* background-color: rgb(233, 233, 233); */
+  border-radius: 0.5rem;
+  height: 20px;
+  width: auto;
+  background: grey;
+}
+
+.progress {
+  background-color: #f49c0a;
+  height: 20px;
+  border-radius: 0.5rem;
+  width: 0%;
+  height: 100%;
+  animation: 60s ease fillbar;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fillbar {
+  to {
+    width: 100%;
+  }
+}

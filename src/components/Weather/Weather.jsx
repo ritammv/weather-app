@@ -1,12 +1,18 @@
-import React, { useContext } from 'react';
-// import moment from 'moment';
-// import ApiService from '../../services/apiService';
+import React, { useState, useEffect } from 'react';
+import ApiService from '../../services/apiService';
 import WeatherTile from './WeatherTile/WeatherTile';
 import './Weather.css';
-import { WeatherContext } from '../../services/context';
+import Progress from './Progress/Progress';
 
 const Weather = () => {
-  const weather = useContext(WeatherContext);
+  const [weather, setWeather] = useState({});
+
+  useEffect(async () => {
+    await ApiService.getLondonWeather().then((res) => setWeather(res));
+    // setInterval(() => {
+    //   ApiService.getLondonWeather().then((res) => setWeather(res));
+    // }, 60000);
+  }, []);
 
   const timeNow = () => {
     const today = new Date();
@@ -31,7 +37,9 @@ const Weather = () => {
                 {`${Math.ceil(weather.daily[0].temp.day)}°`}
               </p>
             </div>
-            <div className="loading_bar" />
+            <div className="loading_bar">
+              <Progress />
+            </div>
           </div>
 
           <div className="weather_wrapper">

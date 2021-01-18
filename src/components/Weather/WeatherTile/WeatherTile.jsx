@@ -11,11 +11,7 @@ const WeatherTile = ({ day }) => {
             <h2 className="weather_text">
               {dayjs(day.dt.toString()).format('ddd').toUpperCase()}
             </h2>
-            {console.log(
-              `day${day.dt}${dayjs(day.dt.toString())
-                .format('ddd')
-                .toUpperCase()}`
-            )}
+
             <h2 className="weather_temp">{`${Math.ceil(day.temp.day)}°`}</h2>
           </div>
 

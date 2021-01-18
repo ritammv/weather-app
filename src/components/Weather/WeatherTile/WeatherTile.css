@@ -29,8 +29,8 @@
 }
 
 .weather_img {
-  height: 100%;
-  width: auto;
+  width: 80%;
+  height: auto;
 }
 
 .weather_text {
